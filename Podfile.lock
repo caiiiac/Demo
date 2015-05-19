@@ -1,13 +1,22 @@
 PODS:
   - AMap2DMap (2.4.2)
   - AMapSearch (2.4.1)
+  - ReactiveCocoa (2.5):
+    - ReactiveCocoa/UI (= 2.5)
+  - ReactiveCocoa/Core (2.5):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.5)
+  - ReactiveCocoa/UI (2.5):
+    - ReactiveCocoa/Core
 
 DEPENDENCIES:
   - AMap2DMap
   - AMapSearch
+  - ReactiveCocoa
 
 SPEC CHECKSUMS:
-  AMap2DMap: 582a8ec3aeb5fcce44adfe51f1a458111821fb0b
-  AMapSearch: 1c6a5b217e808a82369070366b323c09e2eb06c5
+  AMap2DMap: 6f19f93b3410c8105c34ef93dd9dbb537f7ea897
+  AMapSearch: e48c562fc7713f7e5f719863a15141a847e16c04
+  ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
 
-COCOAPODS: 0.36.0
+COCOAPODS: 0.37.1

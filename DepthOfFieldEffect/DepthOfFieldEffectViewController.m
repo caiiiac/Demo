@@ -23,7 +23,7 @@ UITableViewDelegate>
 {
     CGRect frame = self.view.bounds;
     frame.size.height -= 64;
-    frame.origin.y -= 40;
+    frame.origin.y -= 30;
     _scrollView = [[UIScrollView alloc] initWithFrame:frame];
     [self.view addSubview:_scrollView];
     
@@ -38,6 +38,7 @@ UITableViewDelegate>
     _tableView = [[UITableView alloc] initWithFrame:frame style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
+
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
@@ -46,6 +47,7 @@ UITableViewDelegate>
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    
     [self loadViews];
 }
 
@@ -54,10 +56,11 @@ UITableViewDelegate>
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - UITableViewDelegate
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 12;
+    return 22;
 }
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -99,8 +102,9 @@ UITableViewDelegate>
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"%f",_tableView.contentOffset.y);
+    
     [self updateOffsets];
+    
 }
 
 - (void) updateOffsets

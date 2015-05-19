@@ -13,6 +13,9 @@
 #import "QrCodeViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "CIMPMoviePlayerViewController.h"
+#import "ThreadOperationGCDViewController.h"
+
+
 
 @interface ViewController ()
 <UITableViewDataSource,
@@ -37,14 +40,16 @@ UITableViewDelegate>
                   @"无限循环图片",
                   @"景深效果",
                   @"二维码",
-                  @"屏幕控制",nil];
+                  @"屏幕控制",
+                  @"多线程",nil];
     
     _arrayNameVC = [NSArray arrayWithObjects:
                     @"amap",
                     @"InfiniteLoop",
                     @"DepthOfFieldEffect",
                     @"QrCode",
-                    @"视频自动横屏",nil];
+                    @"视频自动横屏",
+                    @"NSThread;NSOperation;GCD",nil];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
@@ -128,14 +133,24 @@ UITableViewDelegate>
         NSString *name = @"lar.mp4";
         NSURL *path = [[NSBundle mainBundle] URLForResource:[name stringByDeletingPathExtension] withExtension:name.pathExtension];
         _moviePlay = [[CIMPMoviePlayerViewController alloc] initWithContentURL:path];
-        _moviePlay.view.frame = self.view.bounds;
+        _moviePlay.moviePlayer.controlStyle = MPMovieControlStyleDefault;
+//        _moviePlay.view.frame = self.view.bounds;
         
-        [self.moviePlay.moviePlayer prepareToPlay];
-        self.moviePlay.moviePlayer.shouldAutoplay = YES;
-        self.moviePlay.moviePlayer.fullscreen = YES;
+//        [self.moviePlay.moviePlayer prepareToPlay];
+//        self.moviePlay.moviePlayer.shouldAutoplay = YES;
+//        self.moviePlay.moviePlayer.fullscreen = YES;
+//        _moviePlay.moviePlayer.view.backgroundColor = [UIColor yellowColor];
+        
+//        [self presentViewController:self.moviePlay animated:YES completion:nil];
+        [self presentMoviePlayerViewControllerAnimated:_moviePlay];
         
         
-        [self presentViewController:self.moviePlay animated:YES completion:nil];
+    }
+    else if (indexPath.row == 5)
+    {
+        ThreadOperationGCDViewController *togVC = [[ThreadOperationGCDViewController alloc] init];
+        togVC.title = @"多线程";
+        [self.navigationController pushViewController:togVC animated:YES];
     }
 }
 
