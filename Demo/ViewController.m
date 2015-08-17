@@ -14,8 +14,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import "CIMPMoviePlayerViewController.h"
 #import "ThreadOperationGCDViewController.h"
-
-
+#import "SpeedAndTimeOffsetViewController.h"
+#import "RealTimeBlurViewController.h"
 
 @interface ViewController ()
 <UITableViewDataSource,
@@ -41,7 +41,9 @@ UITableViewDelegate>
                   @"景深效果",
                   @"二维码",
                   @"屏幕控制",
-                  @"多线程",nil];
+                  @"多线程",
+                  @"控制动画时间",
+                  @"背景模糊",nil];
     
     _arrayNameVC = [NSArray arrayWithObjects:
                     @"amap",
@@ -49,7 +51,9 @@ UITableViewDelegate>
                     @"DepthOfFieldEffect",
                     @"QrCode",
                     @"视频自动横屏",
-                    @"NSThread;NSOperation;GCD",nil];
+                    @"NSThread;NSOperation;GCD",
+                    @"SpeedAndTimeOffset",
+                    @"RealTimeBlur",nil];
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tableView.delegate = self;
@@ -98,7 +102,8 @@ UITableViewDelegate>
     cell.textLabel.text = _arrayData[indexPath.row];
     cell.detailTextLabel.text = _arrayNameVC[indexPath.row];
     
-    
+    cell.textLabel.font = [UIFont fontWithName:@"Hiragino Sans GB" size:20];
+//    Hiragino Mincho ProN Hiragino Kaku Gothic ProN
     return cell;
 }
 
@@ -151,6 +156,18 @@ UITableViewDelegate>
         ThreadOperationGCDViewController *togVC = [[ThreadOperationGCDViewController alloc] init];
         togVC.title = @"多线程";
         [self.navigationController pushViewController:togVC animated:YES];
+    }
+    else if (indexPath.row == 6)
+    {
+        SpeedAndTimeOffsetViewController *speedVC = [[SpeedAndTimeOffsetViewController alloc] init];
+        speedVC.title = @"控制动画时间";
+        [self.navigationController pushViewController:speedVC animated:YES];
+    }
+    else if (indexPath.row == 7)
+    {
+        RealTimeBlurViewController *realTimerBlur = [[RealTimeBlurViewController alloc] init];
+        realTimerBlur.title = @"背景模糊";
+        [self.navigationController pushViewController:realTimerBlur animated:YES];
     }
 }
 

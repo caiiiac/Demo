@@ -1,4 +1,5 @@
 platform :ios,'7.0'
-pod 'AMap2DMap' 
+pod 'AMapNavi', '~> 1.3.0' 
 pod 'AMapSearch'
 pod 'ReactiveCocoa'
+pod 'XHRealTimeBlur', '~> 1.7'

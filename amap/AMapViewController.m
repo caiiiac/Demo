@@ -7,7 +7,7 @@
 //
 
 #import <AMapSearchKit/AMapSearchAPI.h>
-#import <MAMapKit/MAMapKit.h>
+#import <AMapNaviKit/MAMapKit.h>
 
 
 #import "AMapViewController.h"
